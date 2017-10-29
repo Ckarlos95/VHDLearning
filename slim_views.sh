@@ -1,0 +1,1 @@
+for file in app/views/**/*.erb; do erb2slim $file ${file%erb}slim && rm $file; done

@@ -1,0 +1,25 @@
+{
+  "name": "vhdlearning",
+  "homepage": "https://github.com/Ckarlos95/VHDLearning",
+  "authors": [
+    "Carlos Aguilera <ckarlos_95@hotmail.es>"
+  ],
+  "description": "Bower components for application",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "metro": "^3.0.17",
+    "bower": "*",
+    "install": "^1.0.4",
+    "metro-dist": "^3.0.15",
+    "components-font-awesome": "^4.7.0"
+  },
+  "main": ""
+}

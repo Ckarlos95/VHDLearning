@@ -1,0 +1,17 @@
+mailer:
+  email: vhdlearning.dev.contact@gmail.com
+  password: VHDL1234
+  host: localhost:3000
+
+# VHDLearning app for different providers config
+providers:
+  facebook:
+    id: '1915527248774246'
+    secret: a9c952fe7ce513ccebfe99a299aa7670
+  github:
+    id: 20fc879c23263aa12317
+    secret: ca5c7210f4d1c2de22724b75028e7d4ff1222a4e
+  google:
+    id: 368640813422-0d35698qsmc13hcnggjlvrikjlik0ldp.apps.googleusercontent.com
+    secret: nUadpf-cJb_9N74oqwszSXYj
+    ssl_perm: <%= Rails.root.join('cacert.perm').to_s %>
