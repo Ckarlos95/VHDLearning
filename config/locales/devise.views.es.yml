@@ -31,8 +31,14 @@ es:
       models:
         user:
           attributes:
+            email:
+              blank: Debes proporcionar un correo electŕonico válido
+              taken: Este correo ya se encuentra en uso
             password:
               too_short: "La contraseña debe ser de mínimo %{count} caractéres"
+              blank: "Debes proporcionar una contraseña"
+            current_password:
+              blank: Necesitas proporcionar tu contraseña para esta operación
             password_confirmation:
               confirmation: Las contraseñas no coinciden
   devise:
@@ -104,7 +110,8 @@ es:
         update: Actualizar
         we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
       new:
-        sign_up: Registrarse
+        # sign_up: Registrarse
+        sign_in: Iniciar sesión
       signed_up: Bienvenido. Tu cuenta fue creada.
       signed_up_but_inactive: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión porque tu cuenta aún no está activada.
       signed_up_but_locked: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión porque que tu cuenta está bloqueada.
@@ -112,9 +119,7 @@ es:
       update_needs_confirmation: Has actualizado tu cuenta correctamente, pero es necesario confirmar tu nuevo correo electrónico. Por favor, comprueba tu correo y sigue el enlace de confirmación para finalizar la comprobación del nuevo correo electrónico.
       updated: Tu cuenta se ha actualizada.
     sessions:
-      already_signed_out: Sesión finalizada.
-      new:
-        sign_in: Iniciar sesión
+      already_signed_out: Sesión finalizada.        
       signed_in: Sesión iniciada.
       signed_out: Sesión finalizada.
     shared:
@@ -123,9 +128,9 @@ es:
         didn_t_receive_confirmation_instructions: "¿No ha recibido las instrucciones de confirmación?"
         didn_t_receive_unlock_instructions: "¿No ha recibido instrucciones para desbloquear?"
         forgot_your_password: "¿Ha olvidado su contraseña?"
-        sign_in: Iniciar sesión
-        sign_in_with_provider: Iniciar sesión con %{provider}
-        sign_up: Registrarse
+        # sign_in: Iniciar sesión
+        # sign_in_with_provider: Iniciar sesión con %{provider}
+        # sign_up: Registrarse
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instrucciones para desbloquear

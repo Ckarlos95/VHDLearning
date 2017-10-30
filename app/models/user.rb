@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
       email: params['info']['email'],
       password: Devise.friendly_token,
       nickname: params['info']['nickname'],
-      image: params['info']['image']
+      image: params['info']['image'],
+      confirmed_at: Time.now.utc
     }
 
     create(attributes)
@@ -15,5 +16,5 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 end
