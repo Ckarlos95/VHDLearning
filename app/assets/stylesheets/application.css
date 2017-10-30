@@ -12,4 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require metro/build/css/metro.min
+ *= require metro/build/css/metro-responsive.min
+ *= require metro/build/css/metro-icons.min
+ *= require metro/build/css/metro-colors.min
+ *= require metro/build/css/metro-schemes.min
  */
