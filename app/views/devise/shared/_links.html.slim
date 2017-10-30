@@ -13,11 +13,24 @@
 - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
   = link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name)
   br
+
 - if devise_mapping.omniauthable?
   - resource_class.omniauth_providers.each do |provider|
-    = link_to t('.sign_in_with_provider', provider: provider.to_s.titleize), omniauth_authorize_path(resource_name, provider)
+    ruby:
+      prov_name = provider.to_s
+      prov_color = ''
+      case prov_name
+        when 'facebook'
+          color = 'darkBlue'
+        when 'github'
+          color = 'grayDark'
+        when 'google_oauth2'
+          color = 'orange'
+          prov_name = 'google'
+      end
+    button class="button bg-#{color}"
+      a.social href=omniauth_authorize_path(resource_name, provider)
+        span class="mif-#{prov_name}"
+        |  
+        = t('.sign_in_with_provider', provider: prov_name.titleize)  
     br
-  / = link_to 'Iniciar sesión con Facebook', user_facebook_omniauth_authorize_path
-  / br
-  / span class="mif-facebook mif-2x" style="color: #555555;"
-
