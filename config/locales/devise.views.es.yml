@@ -116,6 +116,10 @@ es:
       new:
         sign_up: Registrarse
         sign_in: Iniciar sesión
+        name: Tu nombre
+        nickname: Un nombre de usuario
+        email: Tu correo electrónico
+        password: Escribe una contra
         characters_minimum: caractéres mínimo
       signed_up: Bienvenido. Tu cuenta fue creada.
       signed_up_but_inactive: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión porque tu cuenta aún no está activada.
