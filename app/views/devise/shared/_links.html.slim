@@ -1,8 +1,9 @@
 - if controller_name != 'sessions'
-  = link_to t(".sign_in"), new_session_path(resource_name)
+  / = link_to t(".sign_in"), new_session_path(resource_name)
+  = link_to t(".sign_in"), login_path
   br
 - if devise_mapping.registerable? && controller_name != 'registrations'
-  = link_to t(".sign_up"), new_registration_path(resource_name)
+  = link_to t(".sign_up"), register_path
   br
 - if devise_mapping.recoverable? && controller_name != 'passwords'
   = link_to t(".forgot_your_password"), new_password_path(resource_name)
@@ -14,6 +15,7 @@
   = link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name)
   br
 
+br
 - if devise_mapping.omniauthable?
   - resource_class.omniauth_providers.each do |provider|
     ruby:
@@ -21,16 +23,16 @@
       prov_color = ''
       case prov_name
         when 'facebook'
-          color = 'darkBlue'
+          prov_color = 'darkBlue'
         when 'github'
-          color = 'grayDark'
+          prov_color = 'grayDark'
         when 'google_oauth2'
-          color = 'orange'
+          prov_color = 'orange'
           prov_name = 'google'
       end
-    button class="button bg-#{color}"
-      a.social href=omniauth_authorize_path(resource_name, provider)
-        span class="mif-#{prov_name}"
-        |  
+    button class="button bg-#{prov_color} fg-white text-shadow" style="width: 16em;"
+      a.social-button href=omniauth_authorize_path(resource_name, provider)
+        span class="fa fa-#{prov_name}"
+        | #{' '}
         = t('.sign_in_with_provider', provider: prov_name.titleize)  
     br

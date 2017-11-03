@@ -1,13 +1,16 @@
 - if user_signed_in?
-	h1 Bienvenido #{current_user.name}!
+	h1 Bienvenido #{current_user.nickname || current_user.name}!
 	br
-	= image_tag current_user.image, width: '100px', height: '100px'
+	- if current_user.image
+		= image_tag current_user.image, width: '100px', height: '100px'
+	- else
+		h4 Aún no tienes asociada una imagen de perfil
 	br
 	= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link'
 	|  | 
 	= link_to "Salir", destroy_user_session_path, method: :delete, class: 'navbar-link'
 - else
 	h1 Inicia sesión para acceder
-	= link_to "Registrarse", new_user_registration_path, :class => 'navbar-link'
+	= link_to "Registrarse", register_path, :class => 'navbar-link'
 	|  | 
-	= link_to "Iniciar sesión", new_user_session_path, :class => 'navbar-link'
+	= link_to "Iniciar sesión", login_path, :class => 'navbar-link'
