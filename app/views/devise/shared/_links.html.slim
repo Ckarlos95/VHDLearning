@@ -16,23 +16,13 @@
   br
 
 br
-- if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider|
-    ruby:
-      prov_name = provider.to_s
-      prov_color = ''
-      case prov_name
-        when 'facebook'
-          prov_color = 'darkBlue'
-        when 'github'
-          prov_color = 'grayDark'
-        when 'google_oauth2'
-          prov_color = 'orange'
-          prov_name = 'google'
-      end
-    button class="button bg-#{prov_color} fg-white text-shadow" style="width: 16em;"
-      a.social-button href=omniauth_authorize_path(resource_name, provider)
-        span class="fa fa-#{prov_name}"
-        | #{' '}
-        = t('.sign_in_with_provider', provider: prov_name.titleize)  
-    br
+.row
+  div class="col s4"
+    - if devise_mapping.omniauthable?
+      - resource_class.omniauth_providers.each do |provider|
+        - prov_name = provider.to_s
+        - prov_name = 'google' if prov_name == 'google_oauth2'
+        a class="col s10 btn-large social-text social waves-effect waves-light #{prov_name} z-depth-4" href=omniauth_authorize_path(resource_name, provider)
+          i class="fa fa-#{prov_name} z-depth-2" style="width:2em;"
+          span class="social-text" Iniciar sesión con #{prov_name.titleize}
+        br : br

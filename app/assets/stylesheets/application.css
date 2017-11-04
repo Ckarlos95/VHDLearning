@@ -12,10 +12,12 @@
  *
  *= require_tree .
  *= require_self
- *= require metro/build/css/metro.min
- *= require metro/build/css/metro-responsive.min
- * require metro/build/css/metro-icons.min
- *= require metro/build/css/metro-colors.min
- *= require metro/build/css/metro-schemes.min
  *= require components-font-awesome/css/font-awesome.min
+ *= require materialize/dist/css/materialize.min
+ *= require materialize-social/materialize-social
+ * require metro/build/css/metro.min
+ * require metro/build/css/metro-responsive.min
+ * require metro/build/css/metro-icons.min
+ * require metro/build/css/metro-colors.min
+ * require metro/build/css/metro-schemes.min
  */
