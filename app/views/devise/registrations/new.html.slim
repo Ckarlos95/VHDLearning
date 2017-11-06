@@ -35,7 +35,7 @@ ruby:
             .input-field
               *icon_prefix lock
               - if @minimum_password_length
-                = f.label :password, "Escribe una contraseña (#{@minimum_password_length} carácteres mínimo)"
+                = f.label :password, "Escribe una contraseña", 'data-hint': "#{@minimum_password_length} carácteres mínimo"
               - else
                 = f.label :password, 'Escribe una contraseña'
               = f.password_field :password, autocomplete: "off"

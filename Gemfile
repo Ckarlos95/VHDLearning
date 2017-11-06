@@ -27,7 +27,7 @@ gem 'slim-rails'
 gem 'config'
 gem 'devise'
 gem 'domp'
-gem 'pg', '~> 0.21.0'
+# # gem 'pg', '~> 0.20.0' <---- Moved down due to Windows issues
 gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-oauth2'
@@ -35,11 +35,15 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 
-# For use on Windows
-# gem 'tzinfo-data', platforms: [:mingw, :mswin]
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-# gem 'bcrypt', platforms: :ruby
-gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+# # # FOR USE ON WINDOWS  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if RbConfig::CONFIG['host_os'] == 'mingw32'
+  gem 'pg', '~> 0.21.0'
+  gem 'tzinfo-data'
+  gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
+else
+  gem 'pg', '~> 0.20.0'     # <-------- To be used on non-Windows systems
+end
+# # # FOR USE ON WINDOWS  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # require 'rbconfig'
 # gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i

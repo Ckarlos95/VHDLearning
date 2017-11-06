@@ -37,6 +37,6 @@
   }
 }
 
-@mixin materialize_change_active_inputs_foreground_color($foreground_color, $types:null) {
-  @include materialize_change_inputs_foreground_color($foreground_color, $types, true);
+@mixin materialize_change_active_inputs_foreground_color($foreground_color, $types:null, $also_text:true) {
+  @include materialize_change_inputs_foreground_color($foreground_color, $types, true, $also_text);
 }
