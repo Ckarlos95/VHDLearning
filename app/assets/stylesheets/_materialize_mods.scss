@@ -1,0 +1,42 @@
+@mixin materialize_change_text_foreground_color($foreground_color, $active:false) {
+  .input-field * {
+    @if $active {
+      &.active {
+        color: $foreground_color !important;
+      }
+    } @else {
+      color: $foreground_color !important;
+    }
+  }
+}
+
+@mixin materialize_change_active_text_foreground_color($foreground_color) {
+  @include materialize_change_text_foreground_color($foreground_color, true);
+}
+
+@mixin materialize_change_inputs_foreground_color($foreground_color, $types:null, $active:false, $also_text:true) {
+  $types: 'text' 'password' 'email' 'url' 'time' 'date' 'datetime' 'datetime-local' 'tel' 'number' 'search' !default;
+  $focus_not: if($active, ':focus:not([readonly])', '');
+  $all: 'input:not([type])' + $focus_not;
+
+  @if $also_text {
+    @include materialize_change_text_foreground_color($foreground_color, $active);
+  }
+
+  @each $type in $types {
+    $all: $all + unquote(',input[type=' + $type + ']' + $focus_not);
+  }
+
+  // Return types with color
+  #{$all} {
+    border-bottom: 1px solid $foreground_color !important;
+
+    @if $active {
+      box-shadow: 0 1px 0 0 $foreground_color !important;
+    }
+  }
+}
+
+@mixin materialize_change_active_inputs_foreground_color($foreground_color, $types:null) {
+  @include materialize_change_inputs_foreground_color($foreground_color, $types, true);
+}

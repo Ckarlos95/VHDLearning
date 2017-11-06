@@ -1,9 +1,8 @@
 - if controller_name != 'sessions'
-  / = link_to t(".sign_in"), new_session_path(resource_name)
-  = link_to t(".sign_in"), login_path
+  = link_to t(".sign_in"), new_session_path(resource_name)
   br
 - if devise_mapping.registerable? && controller_name != 'registrations'
-  = link_to t(".sign_up"), register_path
+  = link_to t(".sign_up"), new_registration_path(resource_name)
   br
 - if devise_mapping.recoverable? && controller_name != 'passwords'
   = link_to t(".forgot_your_password"), new_password_path(resource_name)
@@ -14,15 +13,4 @@
 - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
   = link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name)
   br
-
-br
-.row
-  div class="col s4"
-    - if devise_mapping.omniauthable?
-      - resource_class.omniauth_providers.each do |provider|
-        - prov_name = provider.to_s
-        - prov_name = 'google' if prov_name == 'google_oauth2'
-        a class="col s10 btn-large social-text social waves-effect waves-light #{prov_name} z-depth-4" href=omniauth_authorize_path(resource_name, provider)
-          i class="fa fa-#{prov_name} z-depth-2" style="width:2em;"
-          span class="social-text" Iniciar sesión con #{prov_name.titleize}
-        br : br
+    

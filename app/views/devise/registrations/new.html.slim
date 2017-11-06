@@ -1,24 +1,72 @@
-.container
-  .row
-    h2 Regístrate
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
-      .field
-        = f.label :email
+ruby:
+  # input_text_color = 'white'
+  subtitle_class = 'center-align subtitle'
+  icon_prefix = {tag: 'i', class: 'prefix material-icons'}
+
+#up-side
+  #sign-up-title
+    h1 class="white-text center-align" ¡Únete a nosotros!
+
+#up-zz
+
+#down-side
+  #sign-up.container
+    .row
+      #sign-up-normal class="col l6 s12"
+        h3 class=subtitle_class 
+          | Cuéntanos sobre ti
+        .three-dot-separator
         br
-        = f.email_field :email, autofocus: true
-      .field
-        = f.label :password
-        - if @minimum_password_length
-          | (
-          = @minimum_password_length
-          |  characters minimum)
-        br
-        = f.password_field :password, autocomplete: "off"
-      .field
-        = f.label :password_confirmation
-        br
-        = f.password_field :password_confirmation, autocomplete: "off"
-      .actions
-        = f.submit "Sign up"
-    = render "devise/shared/links"
+        .col class="l11 s12 halign-wrapper"
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+            .input-field
+              *icon_prefix account_circle
+              = f.label :name, 'Tu(s) nombre(s)'
+              = f.text_field :name
+            .input-field
+              *icon_prefix assignment_ind
+              = f.label :nickname, 'Escribe un nombre de usuario'
+              = f.text_field :nickname
+            .input-field
+              *icon_prefix mail
+              = f.label :email, 'Tu correo electrónico'
+              = f.email_field :email
+            .input-field
+              *icon_prefix lock
+              - if @minimum_password_length
+                = f.label :password, "Escribe una contraseña (#{@minimum_password_length} carácteres mínimo)"
+              - else
+                = f.label :password, 'Escribe una contraseña'
+              = f.password_field :password, autocomplete: "off"
+            .input-field
+              *icon_prefix lock
+              = f.label :password_confirmation, 'Tu contraseña otra vez'
+              = f.password_field :password_confirmation, autocomplete: "off"
+            br
+            .actions class="col s12 halign-wrapper"
+              button#sign-up-btn type="submit" name="commit" class="input-field btn-large col s12"
+                | Estoy list@
+                / i class="material-icons right" send
+            br : br : br
+
+      #sign-up-social class="col l6 s12"
+        .col class="s12 halign-wrapper"
+          h3 class=subtitle_class
+            | O hazlo con tus redes sociales
+          .three-dot-separator
+          br
+          .col class="l10 s12 halign-wrapper"
+            = render "devise/shared/social_buttons"
+          br
+
+      #other-links class="col l6 s12"
+        .col class="s12 halign-wrapper"
+          h3 class=subtitle_class
+            | ¿Ya tienes una cuenta?
+          .three-dot-separator
+          br
+          .col class="l10 s12 halign-wrapper"
+            a href=new_user_session_path
+              button#sign-up-btn class="btn-large col s12"
+                | Iniciar sesión

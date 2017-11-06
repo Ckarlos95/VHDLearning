@@ -27,13 +27,22 @@ gem 'slim-rails'
 gem 'config'
 gem 'devise'
 gem 'domp'
-gem 'pg', '~> 0.20.0'
+gem 'pg', '~> 0.21.0'
 gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
+
+# For use on Windows
+# gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+# gem 'bcrypt', platforms: :ruby
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+# require 'rbconfig'
+# gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

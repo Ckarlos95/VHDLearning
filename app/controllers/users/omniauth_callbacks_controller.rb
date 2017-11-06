@@ -45,7 +45,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       create_authentication_and_sign_in(auth_params, user, provider)
     else
       flash[:alert] = user.errors.full_messages.first
-      redirect_to register_path
+      redirect_to new_user_registration_path
     end
   end
 end

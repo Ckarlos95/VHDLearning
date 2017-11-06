@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  # get 'users/sign_up', as: '/register'
-
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
+  }, path: 'usuarios', path_names: {
+    sign_up: 'registro',
+    sign_in: 'login'
   }
 
-  devise_scope :user do
-    get 'register', to: 'users/registrations#new'
-    get 'login', to: 'users/sessions#new'
-  end
-
+  # devise_scope :user do
+  #   get 'registro', to: 'users/registrations#new', as: :registration
+  #   get 'login', to: 'users/sessions#new'
+  # end
+  get 'welcome/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
