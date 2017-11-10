@@ -23,16 +23,16 @@
  * require metro/build/css/metro-schemes.min
  */
 
- /* To horizontal-align an element. Similar to 'valign-wrapper' from Materialize */
- /* Must be placed inside any .col element to avoid removing float property */
- .halign-wrapper {
-   margin: auto !important;
-   float: none !important;
-   padding: 0px !important;
-   /*border: dotted 1.5px green;*/
- }
+/* To horizontal-align an element. Similar to 'valign-wrapper' from Materialize */
+/* Must be placed inside any .col element to avoid removing float property */
+.halign-wrapper {
+  margin: auto !important;
+  float: none !important;
+  padding: 0px !important;
+}
 
- .input-field label:not(.label-icon).active {
+/* To change label separation distance when input active */
+.input-field label:not(.label-icon).active {
   -webkit-transform: translateY(-165%) !important;
   transform: translateY(-165%) !important;
 }

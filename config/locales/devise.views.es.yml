@@ -33,7 +33,10 @@ es:
       models:
         user:
           attributes:
+            name:
+              blank: Debes escribir tu nombre
             nickname:
+              blank: Debes escoger un nombre de usuario
               taken: Este nombre de usuario ya se encuentra en uso
             email:
               blank: Debes proporcionar un correo electŕonico válido

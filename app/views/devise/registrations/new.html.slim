@@ -13,33 +13,34 @@ ruby:
   #sign-up.container
     .row
       #sign-up-normal class="col l6 s12"
-        h3 class=subtitle_class 
+        h3 class=subtitle_class
           | Cuéntanos sobre ti
         .three-dot-separator
         br
         .col class="l11 s12 halign-wrapper"
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-            = devise_error_messages!
-            .input-field
+            .white-text
+              = devise_error_messages!
+            .row : .input-field
               *icon_prefix account_circle
               = f.label :name, 'Tu(s) nombre(s)'
               = f.text_field :name
-            .input-field
+            .row : .input-field
               *icon_prefix assignment_ind
               = f.label :nickname, 'Escribe un nombre de usuario'
               = f.text_field :nickname
-            .input-field
+            .row : .input-field
               *icon_prefix mail
               = f.label :email, 'Tu correo electrónico'
               = f.email_field :email
-            .input-field
+            .row : .input-field
               *icon_prefix lock
               - if @minimum_password_length
                 = f.label :password, "Escribe una contraseña", 'data-hint': "#{@minimum_password_length} carácteres mínimo"
               - else
                 = f.label :password, 'Escribe una contraseña'
               = f.password_field :password, autocomplete: "off"
-            .input-field
+            .row : .input-field
               *icon_prefix lock
               = f.label :password_confirmation, 'Tu contraseña otra vez'
               = f.password_field :password_confirmation, autocomplete: "off"

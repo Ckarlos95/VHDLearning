@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/codahale/bcrypt-ruby.git
-  revision: f2db689ba567d1a018f4dacb1ccf909adc93e887
-  specs:
-    bcrypt (3.1.11)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -44,6 +38,8 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (6.0.4)
+    bcrypt (3.1.11)
+    bcrypt (3.1.11-x64-mingw32)
     binding_of_caller (0.7.3)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
@@ -162,8 +158,8 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
-    pg (0.21.0)
-    pg (0.21.0-x64-mingw32)
+    pg (0.20.0)
+    pg (0.20.0-x64-mingw32)
     public_suffix (3.0.0)
     rack (1.6.8)
     rack-test (0.6.3)
@@ -239,8 +235,6 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2017.3)
-      tzinfo (>= 1.0.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
@@ -256,7 +250,6 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  bcrypt!
   byebug
   coffee-rails (~> 4.1.0)
   config
@@ -271,14 +264,13 @@ DEPENDENCIES
   omniauth-github
   omniauth-google-oauth2
   omniauth-oauth2
-  pg (~> 0.21.0)
+  pg (~> 0.20.0)
   rails (= 4.2.10)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   slim-rails
   spring
   turbolinks
-  tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates_presence_of :name
   validates :nickname, uniqueness: true, presence: true
 
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
