@@ -5,9 +5,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
-      # Oauth and App provider's attributes needed
+      ## Oauth and authentication provider's attributes needed
       t.string :name
-      t.string :nickname
+      t.string :nickname, unique: true
       t.string :image
 
       ## Recoverable
