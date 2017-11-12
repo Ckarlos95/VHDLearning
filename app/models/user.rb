@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     nickname = params_info['nickname'] || params_info['name']
     nickname = nick_bckp = nickname.split.first
 
-    until User.find_by_nickname(nickname).blank?
+    while User.find_by_nickname(nickname).present?
       nickname = nick_bckp + separator + [*('a'..'z'),*('0'..'9')].shuffle[0, post_len].join
     end
 
