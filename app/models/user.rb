@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   private
 
-  def self.create_unique_nickname(params_info, separator:'_', post_len:4)
+  def self.create_unique_nickname(params_info, separator: "_", post_len: 4)
     nickname = params_info['nickname'] || params_info['name']
     nickname = nick_bckp = nickname.split.first
 

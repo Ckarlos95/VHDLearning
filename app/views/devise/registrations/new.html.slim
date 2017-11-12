@@ -3,6 +3,10 @@ ruby:
   subtitle_class = 'center-align subtitle'
   icon_prefix = {tag: 'i', class: 'prefix material-icons'}
 
+- content_for :title, 'Regístrate'
+= controller_stylesheet
+= controller_javascript
+
 #up-side
   #sign-up-title
     h1 class="white-text center-align" ¡Únete a nosotros!
@@ -19,7 +23,7 @@ ruby:
         br
         .col class="l11 s12 halign-wrapper"
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-            .white-text
+            .row : .white-text
               = devise_error_messages!
             .row : .input-field
               *icon_prefix account_circle
@@ -36,7 +40,7 @@ ruby:
             .row : .input-field
               *icon_prefix lock
               - if @minimum_password_length
-                = f.label :password, "Escribe una contraseña", 'data-hint': "#{@minimum_password_length} carácteres mínimo"
+                = f.label :password, 'Escribe una contraseña', 'data-hint': "#{@minimum_password_length} carácteres mínimo"
               - else
                 = f.label :password, 'Escribe una contraseña'
               = f.password_field :password, autocomplete: "off"
@@ -45,11 +49,10 @@ ruby:
               = f.label :password_confirmation, 'Tu contraseña otra vez'
               = f.password_field :password_confirmation, autocomplete: "off"
             br
-            .actions class="col s12 halign-wrapper"
-              button#sign-up-btn type="submit" name="commit" class="input-field btn-large col s12"
+            .row : .actions class="col s12 halign-wrapper"
+              button#sign-up-btn type="submit" name="commit" class="btn-large col s12"
                 | Estoy list@
                 / i class="material-icons right" send
-            br : br : br
 
       #sign-up-social class="col l6 s12"
         .col class="s12 halign-wrapper"
@@ -58,8 +61,7 @@ ruby:
           .three-dot-separator
           br
           .col class="l10 s12 halign-wrapper"
-            = render "devise/shared/social_buttons"
-          br
+            = render 'shared/social_buttons'
 
       #other-links class="col l6 s12"
         .col class="s12 halign-wrapper"

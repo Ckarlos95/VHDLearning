@@ -3,78 +3,62 @@ ruby:
   subtitle_class = 'center-align subtitle'
   icon_prefix = {tag: 'i', class: 'prefix material-icons'}
 
+- content_for :title, 'Inicia sesión'
+= controller_stylesheet
+= controller_javascript
+
 #up-side
-  #sign-up-title
+  #sign-in-title
     h1 class="white-text center-align" Inicia sesión
 
 #up-zz
 
 #down-side
-  #sign-up.container
+  #sign-in.container
     .row
-      #sign-up-normal class="col l6 s12"
+      #sign-in-normal class="col l6 s12"
         h3 class=subtitle_class 
           | Dinos quién eres
         .three-dot-separator
         br
         .col class="l11 s12 halign-wrapper"
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            .white-text
+            .row : .white-text
               = devise_error_messages!
-            .input-field class="col s12"
+            .row : .input-field class="col s12"
               *icon_prefix mail
               = f.label :email, 'Tu correo electrónico'
               = f.email_field :email
-            .input-field class="col s12"
+            .row : .input-field class="col s12"
               *icon_prefix lock
               = f.label :password, 'Tu contraseña'
               = f.password_field :password, autocomplete: "off"
             - if devise_mapping.rememberable?
-              .input-field class="col s12"
-                = f.check_box :remember_me
+              .row : .input-field class="col s12"
+                = f.check_box :remember_me, class: 'filled-in'
                 = f.label :remember_me
-            br
-            .actions class="col s12 halign-wrapper"
-              button#sign-up-btn type="submit" name="commit" class="input-field btn-large col s12"
+                
+            .row : .actions class="col s12 halign-wrapper"
+              button#sign-in-btn type="submit" name="commit" class="btn-large col s12"
                 | ¡Vamos!
                 / i class="material-icons right" send
-            br : br : br
 
-      #sign-up-social class="col l6 s12"
+      #sign-in-social class="col l6 s12"
         .col class="s12 halign-wrapper"
           h3 class=subtitle_class
             | O identifícate con tus redes sociales
           .three-dot-separator
           br
           .col class="l10 s12 halign-wrapper"
-            = render "devise/shared/social_buttons"
-          br
+            = render "shared/social_buttons"
 
-      #other-links class="col l6 s12"
-        .col class="s12 halign-wrapper"
+      #other-links class="col s12"
+        .col class="l6 s12 halign-wrapper"
           h3 class=subtitle_class
             | ¿Eres nuevo por aquí?
           .three-dot-separator
           br
           .col class="l10 s12 halign-wrapper"
             a href=new_user_registration_path
-              button#sign-up-btn class="btn-large col s12"
+              button#sign-in-btn class="btn-large col s12"
                 | Registrarme
-/ h2
-/   | Log in
-/ = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-/   .field
-/     = f.label :email
-/     br
-/     = f.email_field :email, autofocus: true
-/   .field
-/     = f.label :password
-/     br
-/     = f.password_field :password, autocomplete: "off"
-/   - if devise_mapping.rememberable?
-/     .field
-/       = f.check_box :remember_me
-/       = f.label :remember_me
-/   .actions
-/     = f.submit "Log in"
-/ = render "devise/shared/links"
