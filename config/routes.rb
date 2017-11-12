@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :topics
   resources :unities
   resources :sections
   devise_for :users, controllers: {
