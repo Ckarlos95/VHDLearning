@@ -1,0 +1,25 @@
+h1 Listing unities
+
+table
+  thead
+    tr
+      th Section
+      th Name
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @unities.each do |unity|
+      tr
+        td = unity.section
+        td = unity.name
+        td = unity.description
+        td = link_to 'Show', unity
+        td = link_to 'Edit', edit_unity_path(unity)
+        td = link_to 'Destroy', unity, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Unity', new_unity_path

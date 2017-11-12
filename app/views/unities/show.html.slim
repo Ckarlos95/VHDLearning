@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Section:
+  = @unity.section
+p
+  strong Name:
+  = @unity.name
+p
+  strong Description:
+  = @unity.description
+
+=> link_to 'Edit', edit_unity_path(@unity)
+'|
+=< link_to 'Back', unities_path
