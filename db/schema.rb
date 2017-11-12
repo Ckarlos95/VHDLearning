@@ -36,10 +36,11 @@ ActiveRecord::Schema.define(version: 20171112044522) do
   add_index "sections", ["name"], name: "index_sections_on_name", unique: true, using: :btree
 
   create_table "topics", force: :cascade do |t|
-    t.integer  "unity_id",   null: false
-    t.string   "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "unity_id",               null: false
+    t.string   "content",                null: false
+    t.integer  "xp",         default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "topics", ["unity_id"], name: "index_topics_on_unity_id", using: :btree
