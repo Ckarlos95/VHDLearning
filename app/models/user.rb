@@ -9,11 +9,8 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :confirmable, :omniauthable
 
-
   def self.create_from_omniauth(params)
-    nickname = params['info']['nickname']
-    nickname ||= params['info']['name'].split.first + rand(9999).to_s
-
+    nickname = create_unique_nickname(params['info'])
     attributes = {
       name: params['info']['name'],
       email: params['info']['email'],
@@ -23,5 +20,18 @@ class User < ActiveRecord::Base
       confirmed_at: Time.now.utc
     }
     create(attributes)
+  end
+
+  private
+
+  def self.create_unique_nickname(params_info, separator:'_', post_len:4)
+    nickname = params_info['nickname'] || params_info['name']
+    nickname = nick_bckp = nickname.split.first
+
+    until User.find_by_nickname(nickname).blank?
+      nickname = nick_bckp + separator + [*('a'..'z'),*('0'..'9')].shuffle[0, post_len].join
+    end
+
+    nickname
   end
 end
