@@ -12,10 +12,6 @@ Rails.application.routes.draw do
     sign_in: 'login'
   }
 
-  # devise_scope :user do
-  #   get 'registro', to: 'users/registrations#new', as: :registration
-  #   get 'login', to: 'users/sessions#new'
-  # end
   get 'welcome/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
