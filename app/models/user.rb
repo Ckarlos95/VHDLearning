@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :nickname, uniqueness: true, presence: true
 
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
+  has_one :progress, class_name: 'UserProgress', dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

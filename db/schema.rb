@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20171112052757) do
 
   create_table "user_progresses", force: :cascade do |t|
     t.integer  "user_id",                null: false
-    t.integer  "topic_id",               null: false
+    t.integer  "topic_id",   default: 1, null: false
     t.integer  "xp",         default: 0
     t.integer  "level",      default: 1
     t.datetime "created_at",             null: false
