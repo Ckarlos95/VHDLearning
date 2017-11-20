@@ -1,0 +1,38 @@
+ruby:
+  nav_global_links = {about: {text: 'Acerca de', url: about_url}, contact: {text: 'Contacto', url: contact_url}}
+  
+scss:
+  .brand-logo {
+    padding-left: 1rem !important;
+  }
+coffee:
+  $ ->
+    $(".button-collapse").sideNav()
+    
+header
+  nav
+    .nav-wrapper class="orange"
+      a.brand-logo href=root_path
+        = image_tag 'final_1024x1024.png', size: '60x60', class: 'left'
+        strong VHDLearning
+      a.button-collapse data-activates="side-bar" href="#" 
+        i.material-icons menu
+      
+      ul.right class="hide-on-med-and-down"
+        li
+          a href="sass.html"  Sass
+        li
+          a href="badges.html"  Components
+        li
+          a href="collapsible.html"  Javascript
+        li
+          a href="mobile.html"  Mobile
+      ul#side-bar class="side-nav"
+        li
+          a href="sass.html"  Sass
+        li
+          a href="badges.html"  Components
+        li
+          a href="collapsible.html"  Javascript
+        li
+          a href="mobile.html"  Mobile
