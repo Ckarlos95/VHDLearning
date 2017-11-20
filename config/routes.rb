@@ -1,23 +1,30 @@
 Rails.application.routes.draw do
-  resources :topics
-  resources :unities
-  resources :sections
+  resources :sections do
+    resources :unities do
+      resources :topics
+    end
+  end
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
-  }, path: 'usuarios', path_names: {
+  }, path: '', path_names: {
     sign_up: 'registro',
-    sign_in: 'login'
+    sign_in: 'login',
+    edit: 'editar-perfil'
   }
+  
+  resources '', controller: 'welcome', except: [:index, :create, :new, :edit, :show, :update, :destroy]
 
-  get 'welcome/index'
+  get 'welcome/about', path: 'acerca-de', as: 'about'
+  get 'welcome/contact', path: 'contacto', as: 'contact'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'welcome#land'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
