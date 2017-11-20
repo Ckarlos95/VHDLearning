@@ -10,5 +10,7 @@ class CreateSections < ActiveRecord::Migration
 
     add_index :sections, :name, unique: true
     add_index :sections, :icon, unique: true
+
+    Section.create(name: 'Lo básico', description: 'Aquí aprenderás los aspectos básicos del lenguaje', icon: 'fa fa-rocket')
   end
 end
