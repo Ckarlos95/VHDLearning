@@ -7,5 +7,7 @@ class CreateTopics < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    Topic.create(unity_id: 1, content: 'que_es_vhdl', xp: 150)
   end
 end
