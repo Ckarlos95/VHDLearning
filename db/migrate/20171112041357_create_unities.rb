@@ -9,5 +9,7 @@ class CreateUnities < ActiveRecord::Migration
     end
 
     add_index :unities, :name, unique: true
+
+    Unity.create(section_id: 1, name: 'Introducción', description: 'Una breve introducción a VHDL')
   end
 end
