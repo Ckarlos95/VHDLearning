@@ -35,6 +35,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def create_authentication_and_sign_in(auth_params, user, provider)
     UserAuthentication.create_from_omniauth(auth_params, user, provider)
+    user.progress = UserProgress.new
 
     sign_in_and_redirect(:user, user)
   end
