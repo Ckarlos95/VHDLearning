@@ -1,23 +1,38 @@
-h1 Listing topics
+coffee:
+  $ ->
+    $('ul.tabs').tabs()
 
-table
-  thead
-    tr
-      th Unity
-      th Content
-      th
-      th
-      th
+= controller_stylesheet
+= controller_javascript
 
-  tbody
-    - @topics.each do |topic|
-      tr
-        td = topic.unity
-        td = topic.content
-        td = link_to 'Show', topic
-        td = link_to 'Edit', edit_topic_path(topic)
-        td = link_to 'Destroy', topic, data: { confirm: 'Are you sure?' }, method: :delete
+= render partial: 'topics_tabs', collection: @topics, as: :topic
+.container
+  .row
+    .col class="s12"
+      = render partial: 'user_index', collection: @topics, as: :topic
+      / , locals: {unities_count: @unities.count, unity_current: 0}
+/ h1 Listing topics
 
-br
+/ table
+/   thead
+/     tr
+/       th Unity
+/       th Content
+/       th
+/       th
+/       th
 
-= link_to 'New Topic', new_topic_path
+/   tbody
+/     - @topics.each do |topic|
+/       tr
+/         td = topic.unity.name
+/         td = topic.content
+/         td = link_to 'Show', section_unity_topic_path(@section, @unity, topic)
+/         td = link_to 'Edit', edit_section_unity_topic_path(@section, @unity, topic)
+/         td = link_to 'Destroy', [@section, @unity, topic], data: { confirm: 'Are you sure?' }, method: :delete
+
+/ br
+
+/ = link_to 'New Topic', new_section_unity_topic_path
+/ br
+/ = link_to 'Atrás', section_unities_path

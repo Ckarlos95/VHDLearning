@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 
   # GET /sections
@@ -69,6 +70,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:name, :description, :icon)
+      params.require(:section).permit(:name, :description, :icon, :color)
     end
 end

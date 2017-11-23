@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 20171112052757) do
   add_index "authentication_providers", ["name"], name: "index_name_on_authentication_providers", using: :btree
 
   create_table "sections", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",                          null: false
     t.text     "description"
-    t.string   "icon",        null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "icon",                          null: false
+    t.string   "color",       default: "black"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "sections", ["icon"], name: "index_sections_on_icon", unique: true, using: :btree

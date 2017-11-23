@@ -9,6 +9,12 @@ p
 p
   strong Icon:
   = @section.icon
+p
+  strong Color:
+  = @section.color
+
+h2 Módulos
+/ = render template: 'unities/index'
 
 => link_to 'Edit', edit_section_path(@section)
 '|

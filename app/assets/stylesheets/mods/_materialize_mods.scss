@@ -1,0 +1,85 @@
+// @mixin materialize_change_text_foreground_color($foreground_color, $active:false) {
+//   .input-field * {
+//     @if $active {
+//       &.active {
+//         color: $foreground_color !important;
+//       }
+//     } @else {
+//       color: $foreground_color !important;
+//     }
+//   }
+// }
+
+// @mixin materialize_change_active_text_foreground_color($foreground_color) {
+//   @include materialize_change_text_foreground_color($foreground_color, true);
+// }
+
+// @mixin materialize_change_inputs_foreground_color($foreground_color, $types:null, $active:false, $also_text:true) {
+//   $types: 'text' 'password' 'email' 'url' 'time' 'date' 'datetime' 'datetime-local' 'tel' 'number' 'search' !default;
+//   $input_focus: '';
+//   $checkbox_style: 2px solid $foreground_color;
+  
+//   @if $active {
+//     // When inputs are focused
+//     $input_focus: ':focus:not([readonly])';
+    
+//     /* For checkboxes :checked */
+//     // Normal checkbox
+//     [type="checkbox"]:checked+label:before {
+//       border: {
+//         right: $checkbox_style;
+//         bottom: $checkbox_style;
+//       }
+//     }
+
+//     // Filled-in checkbox (.filled-in)
+//     [type="checkbox"].filled-in:checked + label:after {
+//       border: $checkbox_style;
+//       background-color: $foreground_color;
+//     }
+//     // Filled-in checkbox tabbed(.filled-in.tabbed)
+//     [type="checkbox"].filled-in.tabbed:checked:focus + label:after {
+//       border-color: $foreground_color;
+//       background-color: $foreground_color;
+//     }
+//   } @else {
+//     // When inputs are not focused
+//     /* For checkboxes not checked (:not(:checked)) */
+//     // Normal checkbox
+//     [type="checkbox"] + label:before, [type="checkbox"]:not(.filled-in) + label:after {
+//       border: $checkbox_style;
+//     }
+
+//     // Filled-in checkbox (.filled-in)
+//     [type="checkbox"].filled-in:not(:checked) + label:after {
+//       border: $checkbox_style;
+//     }
+//     // Filled-in checkbox tabbed (.filled-in.tabbed)
+//     [type="checkbox"].filled-in.tabbed:focus + label:after {
+//       border-color: $foreground_color;
+//     }
+//   }
+
+//   $all: 'input:not([type])' + $input_focus;
+
+//   @if $also_text {
+//     @include materialize_change_text_foreground_color($foreground_color, $active);
+//   }
+
+//   @each $type in $types {
+//     $all: $all + unquote(',input[type=' + $type + ']' + $input_focus);
+//   }
+
+//   // Return types with color
+//   #{$all} {
+//     border-bottom: 1px solid $foreground_color !important;
+
+//     @if $active {
+//       box-shadow: 0 1px 0 0 $foreground_color !important;
+//     }
+//   }  
+// }
+
+// @mixin materialize_change_active_inputs_foreground_color($foreground_color, $types:null, $also_text:true) {
+//   @include materialize_change_inputs_foreground_color($foreground_color, $types, true, $also_text);
+// }

@@ -1,0 +1,29 @@
+/* line 1, /media/FILES/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/registrations/new.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 5, /media/FILES/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/registrations/new.scss */
+body {
+  background-image: url(/assets/reg_bg-95533a93efe760488254d6f986d8b55f5142e835fa59adf8b0809956008cb843.png);
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 100em rgba(0, 0, 0, 0.7);
+}
+
+/* line 20, /media/FILES/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/registrations/new.scss */
+.social-buttons {
+  display: inline-block;
+}
+
+/* line 24, /media/FILES/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/registrations/new.scss */
+.social-text {
+  text-shadow: 4px 2px 4px black;
+}
+
+/* line 3, /media/FILES/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/sessions/new.scss */
+body {
+  background-image: url(/assets/login_bg-d86761be91381743eccdbc3f93b1f84a8fba6f94e2bcfa4c0656b4b444013b2d.jpg);
+}

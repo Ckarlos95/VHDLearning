@@ -1,32 +1,56 @@
 ruby:
-  nav_global_links = {about: {text: 'Acerca de', url: about_url}, contact: {text: 'Contacto', url: contact_url}}
-  
-scss:
-  .brand-logo {
-    padding-left: 1rem !important;
+  nav_global_links = {
+    about: {text: 'Acerca de', url: about_url, icon: 'fa fa-info-circle'},
+    contact: {text: 'Contacto', url: contact_url, icon: 'material-icons contact_mail'}
   }
+  nav_reg_links = {
+    register: {text: 'Registro', url: new_user_registration_path, icon: 'fa fa-wpforms'},
+    login: {text: 'Iniciar sesión', url: new_user_session_path, icon: 'fa fa-sign-in'}
+  }
+
 coffee:
   $ ->
     $(".button-collapse").sideNav()
+    $(".dropdown-button").dropdown();
     
 header
+  /! Navigation bar
   nav
-    .nav-wrapper class="orange"
+    .nav-wrapper
       a.brand-logo href=root_path
-        = image_tag 'final_1024x1024.png', size: '60x60', class: 'left'
+        .logo
+          = image_tag 'final_1024x1024.png', size: '50x50'
         strong VHDLearning
       a.button-collapse data-activates="side-bar" href="#" 
         i.material-icons menu
       
       ul.right class="hide-on-med-and-down"
-        li
-          a href="sass.html"  Sass
-        li
-          a href="badges.html"  Components
-        li
-          a href="collapsible.html"  Javascript
-        li
-          a href="mobile.html"  Mobile
+        - nav_global_links.each do |name, lnk|
+          li
+            = link_to lnk[:url]
+              = icon_string lnk[:icon], class: 'left'
+              = lnk[:text]
+        - if user_signed_in?
+          /! Dropdown for user
+          ul#user-options class="dropdown-content"
+            li
+              = link_to user_path(current_user), class: 'black-text'
+                i.material-icons class="left" face
+                | Mi perfil
+            li.divider
+            li
+              = link_to destroy_user_session_path, method: :delete, class: 'red-text'
+                i.fa class="fa-sign-out left"
+                | Salir
+          li 
+            a.nav-user class="dropdown-button" href="#!" data-activates="user-options"
+              = image_tag current_user.image, size: '40x40'
+              = current_user.nickname
+              i class="material-icons right" arrow_drop_down
+        - else
+          - nav_reg_links.each do |name, lnk|
+            li : a
+              = link_to lnk[:text], lnk[:url], class:"waves-effect waves-light btn"
       ul#side-bar class="side-nav"
         li
           a href="sass.html"  Sass

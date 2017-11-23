@@ -1,10 +1,13 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_section, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_unity, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = @unity.topics
   end
 
   # GET /topics/1
@@ -35,6 +38,8 @@ class TopicsController < ApplicationController
         format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
+    enddef set_unity
+    @unity = Unity.find(params[:id])
   end
 
   # PATCH/PUT /topics/1
@@ -62,13 +67,22 @@ class TopicsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def topic_params
-      params.require(:topic).permit(:unity_id, :content)
-    end
+  def set_section
+    @section = Section.find(params[:section_id])
+  end
+
+  def set_unity
+    @unity = Unity.find(params[:unity_id])
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_topic
+    @topic = Topic.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def topic_params
+    params.require(:topic).permit(:unity_id, :content)
+  end
 end

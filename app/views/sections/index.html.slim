@@ -1,25 +1,31 @@
-h1 Listing sections
+= controller_stylesheet
+= controller_javascript
 
-table
-  thead
-    tr
-      th Name
-      th Description
-      th Icon
-      th
-      th
-      th
+.container
+  .row
+    .col class="s12"
+      = render partial: 'user_index', collection: @sections, as: :section
+      / h1 Listing sections
+      / table
+      /   thead
+      /     tr
+      /       th Name
+      /       th Description
+      /       th Icon
+      /       th
+      /       th
+      /       th
+      /   tbody
+      /     - @sections.each do |section|
+      /       tr
+      /         td = section.name
+      /         td = section.description
+      /         td = section.icon
+      /         td = link_to 'Show', section
+      /         td = link_to 'Edit', edit_section_path(section)
+      /         td = link_to 'Destroy', section, data: { confirm: 'Are you sure?' }, method: :delete
+      / br
 
-  tbody
-    - @sections.each do |section|
-      tr
-        td = section.name
-        td = section.description
-        td = section.icon
-        td = link_to 'Show', section
-        td = link_to 'Edit', edit_section_path(section)
-        td = link_to 'Destroy', section, data: { confirm: 'Are you sure?' }, method: :delete
+    / = link_to 'New Section', new_section_path
 
-br
-
-= link_to 'New Section', new_section_path
+      - @sections.each do |section|

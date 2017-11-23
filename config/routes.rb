@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :sections do
-    resources :unities do
-      resources :topics
+  resources 'secciones' , controller: :sections, as: :sections do
+    resources 'modulos', controller: :unities, as: :unities do
+      resources 'topicos', controller: :topics, as: :topics
     end
   end
 
@@ -13,13 +13,17 @@ Rails.application.routes.draw do
   }, path: '', path_names: {
     sign_up: 'registro',
     sign_in: 'login',
+    sign_out: 'salir',
     edit: 'editar-perfil'
   }
-  
-  resources '', controller: 'welcome', except: [:index, :create, :new, :edit, :show, :update, :destroy]
 
+  resources '', controller: :welcome, except: [:index, :create, :new, :edit, :show, :update, :destroy]
   get 'welcome/about', path: 'acerca-de', as: 'about'
   get 'welcome/contact', path: 'contacto', as: 'contact'
+
+  resources '', controller: :users, only: [:show]
+  get 'users/show', path: '/:nickname', as: :user
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

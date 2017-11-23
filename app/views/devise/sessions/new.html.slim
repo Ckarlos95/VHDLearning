@@ -1,64 +1,48 @@
 ruby:
-  # input_text_color = 'white'
-  subtitle_class = 'center-align subtitle'
   icon_prefix = {tag: 'i', class: 'prefix material-icons'}
+
+coffee:
+  $ ->
+    $('#sign-in-btn').click ->
+      $(this).closest('form').submit()
 
 - content_for :title, 'Inicia sesión'
 = controller_stylesheet
 = controller_javascript
 
-#up-side
-  #sign-in-title
-    h1 class="white-text center-align" Inicia sesión
-
-#up-zz
-
-#down-side
-  #sign-in.container
-    .row
-      #sign-in-normal class="col l6 s12"
-        h3 class=subtitle_class 
-          | Dinos quién eres
-        .three-dot-separator
-        br
-        .col class="l11 s12 halign-wrapper"
-          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            .row : .white-text
-              = devise_error_messages!
-            .row : .input-field class="col s12"
-              *icon_prefix mail
-              = f.label :email, 'Tu correo electrónico'
-              = f.email_field :email
-            .row : .input-field class="col s12"
-              *icon_prefix lock
-              = f.label :password, 'Tu contraseña'
-              = f.password_field :password, autocomplete: "off"
-            - if devise_mapping.rememberable?
-              .row : .input-field class="col s12"
-                = f.check_box :remember_me, class: 'filled-in'
-                = f.label :remember_me
-                
-            .row : .actions class="col s12 halign-wrapper"
-              button#sign-in-btn type="submit" name="commit" class="btn-large col s12"
-                | ¡Vamos!
-                / i class="material-icons right" send
-
-      #sign-in-social class="col l6 s12"
-        .col class="s12 halign-wrapper"
-          h3 class=subtitle_class
-            | O identifícate con tus redes sociales
-          .three-dot-separator
+#sign-in.container
+  .row
+    .white-text
+      = devise_error_messages!
+    .explanation.col class="l7 s12 right"
+      .valign-wrapper.
+        h3 class="white-text center"
+          | Una plataforma orientada al aprendizaje práctico del lenguage VHDL
+    #sign-in-form.col class="l5 s12 card-panel left"
+      .form-container
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .center
+            h4 Iniciar sesión
+            p.center Dinos quién eres
           br
-          .col class="l10 s12 halign-wrapper"
-            = render "shared/social_buttons"
-
-      #other-links class="col s12"
-        .col class="l6 s12 halign-wrapper"
-          h3 class=subtitle_class
-            | ¿Eres nuevo por aquí?
-          .three-dot-separator
+          .input-field
+            *icon_prefix mail
+            = f.label :email, 'Tu correo electrónico'
+            = f.email_field :email
+          .input-field
+            *icon_prefix lock
+            = f.label :password, 'Tu contraseña'
+            = f.password_field :password, autocomplete: "off"
+          - if devise_mapping.rememberable?
+            .input-field
+              = f.check_box :remember_me, class: 'filled-in'
+              = f.label :remember_me
           br
-          .col class="l10 s12 halign-wrapper"
-            a href=new_user_registration_path
-              button#sign-in-btn class="btn-large col s12"
-                | Registrarme
+          .actions
+            a#sign-in-btn name="commit" class="btn waves-effect waves-light col s12"
+              | ¡Vamos!
+
+      .social-buttons
+        = render 'shared/social_buttons'
+      .other-links
+        p ¿Eres nuevo por aquí? #{link_to 'Registrarme', new_user_registration_path}

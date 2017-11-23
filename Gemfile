@@ -44,6 +44,7 @@ gem 'omniauth-google-oauth2'
 # Provides configuration when using multiple Omniauth providers
 gem 'domp'
 # # gem 'pg', '~> 0.20.0' <---- Moved down due to Windows issues
+gem 'materialize-sass'
 
 # # # FOR USE ON WINDOWS  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if RbConfig::CONFIG['host_os'] == 'mingw32'

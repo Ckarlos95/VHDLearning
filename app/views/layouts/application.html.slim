@@ -1,3 +1,11 @@
+ruby:
+  def random_background
+    files_to_skip = %w{ . .. .keep }
+    all_backgrounds = Dir.entries("#{Rails.root}/app/assets/images/backgrounds") - files_to_skip
+
+    all_backgrounds.sample
+  end
+
 doctype html
 html
   head
@@ -9,6 +17,11 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    css:
+      html {
+        background-image: url("#{asset_data_uri random_background}");
+      }
+
   body
     = render 'shared/navigation'
     = yield

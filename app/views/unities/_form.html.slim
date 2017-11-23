@@ -1,4 +1,4 @@
-= form_for @unity do |f|
+= form_for [@section, @unity] do |f|
   - if @unity.errors.any?
     #error_explanation
       h2 = "#{pluralize(@unity.errors.count, "error")} prohibited this unity from being saved:"
@@ -6,9 +6,6 @@
         - @unity.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :section
-    = f.text_field :section
   .field
     = f.label :name
     = f.text_field :name

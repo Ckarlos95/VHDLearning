@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require all
-//= require materialize/dist/js/materialize.min
+//= require materialize-sprockets
+// require materialize/dist/js/materialize.min
 // require metro/build/js/metro.min
 // require_tree .

@@ -1,25 +1,36 @@
-h1 Listing unities
+= controller_stylesheet
+= controller_javascript
 
-table
-  thead
-    tr
-      th Section
-      th Name
-      th Description
-      th
-      th
-      th
+.container
+  .row
+    .col class="s12"
+      .row
+        .col class="s12"
+          = render partial: 'user_index', collection: @unities, as: :unity, locals: {unities_count: @unities.count, unity_current: 0}
+= link_to 'Atrás', sections_path
+/ h1 Listing unities
 
-  tbody
-    - @unities.each do |unity|
-      tr
-        td = unity.section
-        td = unity.name
-        td = unity.description
-        td = link_to 'Show', unity
-        td = link_to 'Edit', edit_unity_path(unity)
-        td = link_to 'Destroy', unity, data: { confirm: 'Are you sure?' }, method: :delete
+/ table
+/   thead
+/     tr
+/       th Section
+/       th Name
+/       th Description
+/       th
+/       th
+/       th
 
-br
+/   tbody
+/     - @unities.each do |unity|
+/       h3 = unity.inspect
+/       tr
+/         td = unity.section.name
+/         td = unity.name
+/         td = unity.description
+/         td = link_to 'Show', section_unity_path(@section, unity)
+/         td = link_to 'Edit', edit_section_unity_path(@section, unity)
+/         td = link_to 'Destroy', [@section, unity], data: { confirm: 'Are you sure?' }, method: :delete
 
-= link_to 'New Unity', new_unity_path
+/ br
+
+/ = link_to 'New Unity', new_section_unity_path

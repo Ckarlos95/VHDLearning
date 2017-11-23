@@ -4,6 +4,7 @@ class CreateSections < ActiveRecord::Migration
       t.string :name, null: false
       t.text :description
       t.string :icon, null: false
+      t.string :color, default: 'black'
 
       t.timestamps null: false
     end
@@ -11,6 +12,6 @@ class CreateSections < ActiveRecord::Migration
     add_index :sections, :name, unique: true
     add_index :sections, :icon, unique: true
 
-    Section.create(name: 'Lo básico', description: 'Aquí aprenderás los aspectos básicos del lenguaje', icon: 'fa fa-rocket')
+    Section.create(name: 'Lo básico', description: 'Aquí aprenderás los aspectos básicos del lenguaje', icon: 'fa fa-rocket', color: 'blue')
   end
 end

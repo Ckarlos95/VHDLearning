@@ -1,10 +1,13 @@
 class UnitiesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_section
+  # , only: [:index, :new, :show, :edit, :update, :destroy]
   before_action :set_unity, only: [:show, :edit, :update, :destroy]
 
   # GET /unities
   # GET /unities.json
   def index
-    @unities = Unity.all
+    @unities = @section.unities
   end
 
   # GET /unities/1
@@ -25,10 +28,11 @@ class UnitiesController < ApplicationController
   # POST /unities.json
   def create
     @unity = Unity.new(unity_params)
+    @unity.section = @section
 
     respond_to do |format|
       if @unity.save
-        format.html { redirect_to @unity, notice: 'Unity was successfully created.' }
+        format.html { redirect_to section_unity_path(@section, @unity), notice: 'Unity was successfully created.' }
         format.json { render :show, status: :created, location: @unity }
       else
         format.html { render :new }
@@ -62,6 +66,9 @@ class UnitiesController < ApplicationController
   end
 
   private
+    def set_section
+      @section = Section.find(params[:section_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_unity
       @unity = Unity.find(params[:id])

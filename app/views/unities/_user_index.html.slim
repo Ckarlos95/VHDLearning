@@ -1,0 +1,11 @@
+- unity_current += 1
+= link_to section_unity_topics_path(unity.section, unity)
+  .col class="l4 s6"
+    .card class="blue-grey darken-1 hvr-overline-reveal"
+      .top-right
+        | #{unity_current} / #{unities_count}
+      .card-content.white-text
+        span.card-title = unity.name
+        p = unity.description
+      .card-action
+        = pluralize(unity.topics.count, 'tópico')

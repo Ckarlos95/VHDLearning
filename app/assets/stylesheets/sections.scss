@@ -1,0 +1,92 @@
+@import 'mods/cross_browser';
+
+$section_animation_duration: 500ms;
+$animation_name: blur;
+$blur_size: 5px;
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: $section_animation_duration ease;
+  border: {
+    radius: inherit;
+    // color: white;
+    // width: 5px;
+    // style: dashed;
+  }
+}
+
+.overlay-text {
+  font-size: 30px;
+  text-align: justify;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  @include prefixer(transform, translate(-50%, -50%), ms);
+}
+
+.section-card{
+  border: {
+    // radius: 120px 80px 0px 80px;
+    radius: 40px;
+  }
+
+  .section-icon {
+    font: {
+      size: 16rem;
+    }
+    margin: {
+      bottom: 3rem;
+    }
+    text: {
+      shadow: 12px 17px 25px rgba(0, 0, 0, 0.77);
+    }
+  }
+
+  .section-name {
+    font: {
+      size: 3rem;
+      weight: bold;
+    }
+    text: {
+      shadow: 5px 6px 7px rgba(0, 0, 0, 0.77);
+    }
+  }
+
+  &:hover {
+    .card-content {
+      @include prefixer(animation, $animation_name $section_animation_duration linear forwards)
+    }
+    .overlay {
+      height: 100%;
+      // width: 100%;
+    }
+  }
+}
+
+@-webkit-keyframes blur {
+  to {
+    -webkit-filter: blur($blur_size);
+    filter: blur($blur_size);
+  }
+}
+@-moz-keyframes blur {
+  to {
+    -moz-filter: blur($blur_size);
+    filter: blur($blur_size);
+  }
+}
+@keyframes blur {
+  to {
+    -webkit-filter: blur($blur_size);
+    -moz-filter: blur($blur_size);
+    filter: blur($blur_size);
+  }
+}

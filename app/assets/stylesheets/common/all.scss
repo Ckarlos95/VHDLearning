@@ -1,0 +1,76 @@
+@import 'mods/cross_browser';
+
+html { 
+  min-height: 100%;
+  background: no-repeat center center fixed; 
+  @include prefixer(background-size, cover, webkit moz o);
+  box-shadow: inset 0 0 0 100em rgba(0, 0, 0, 0.7);
+}
+// @import 'materialize';
+@import "materialize/components/color";
+$primary-color: color("orange", "darken-2") !default;
+$secondary-color: color("blue", "base") !default;
+@import 'materialize';
+
+/* To horizontal-align an element. Similar to 'valign-wrapper' from Materialize */
+/* Must be placed inside any .col element to avoid removing float property */
+// .halign-wrapper {
+//   margin: auto !important;
+//   float: none !important;
+//   padding: 0px !important;
+// }
+
+/* To change label separation distance when input active */
+// .input-field label:not(.label-icon).active {
+//   $label_transformation: translateY(-165%) !important;
+
+//   -webkit-transform: $label_transformation;
+//   transform: $label_transformation;
+// }
+
+
+.social-buttons {
+  display: inline-block;
+}
+
+.social-text {
+  text-shadow: 4px 2px 4px black;
+}
+
+// .form-container {
+// }
+
+.brand-logo {
+  padding-left: 5px !important;
+
+  .logo {
+    display: inline-block;
+    height: 100%;
+
+    > img {
+      vertical-align: middle;
+      margin-right: 5px;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+nav {
+  i {
+    font-size: 24px !important;
+  }
+
+  .nav-user {
+    font: {
+      size: 20px;
+      weight: bold;
+    }
+
+    img {
+      vertical-align: middle;
+      margin-right: 5px;
+      border-radius: 50%;
+      border: solid white 2px;
+    }
+  }
+}

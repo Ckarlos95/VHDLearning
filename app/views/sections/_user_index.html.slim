@@ -1,0 +1,11 @@
+= link_to section_unities_path(section)
+  .col class="l6 s12"
+    .card class="section-card z-depth-5" style="background-color:#{section.color};"
+      .card-content class="white-text center"
+        = icon_string section.icon, class: 'section-icon center'
+        span.card-title
+          p.section-name
+            = section.name
+      .overlay
+        p class="overlay-text white-text" = section.description
+          

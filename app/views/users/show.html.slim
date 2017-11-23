@@ -1,0 +1,8 @@
+= controller_stylesheet
+= controller_javascript
+
+- if user_signed_in? && @user&.nickname === current_user.nickname
+  .container 
+    .col class="card-panel"
+- else
+  = controller.redirect_to user_path(current_user)

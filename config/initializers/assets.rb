@@ -8,4 +8,11 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( registrations sessions registrations/new sessions/new )
+assets_dir = 'app/assets/**'
+assets_extensions = %w{ *.css *.js *.scss *.coffee }
+
+assets_extensions.each do |ext|
+  Rails.application.config.assets.precompile += Dir[Rails.root.join(assets_dir, ext)]
+end
+
+Rails.application.config.assets.paths += Dir.glob("#{Rails.root}/app/assets/images/**/")

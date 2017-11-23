@@ -20,7 +20,12 @@ class User < ActiveRecord::Base
       image: params['info']['image'],
       confirmed_at: Time.now.utc
     }
+    
     create(attributes)
+  end
+
+  def to_param
+    nickname
   end
 
   private
