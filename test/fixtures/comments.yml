@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  unity_id: 
+  content: MyText
+  ups: 1
+  downs: 1
+
+two:
+  user_id: 
+  unity_id: 
+  content: MyText
+  ups: 1
+  downs: 1

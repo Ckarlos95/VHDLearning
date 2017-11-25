@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, class_name: 'UserAuthentication', dependent: :destroy
   has_one :progress, class_name: 'UserProgress', dependent: :destroy
+  has_many :comments
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

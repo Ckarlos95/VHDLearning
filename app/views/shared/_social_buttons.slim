@@ -1,11 +1,6 @@
 ruby:
-  txt_action = ''
-  case controller.controller_name
-  when 'registrations'
-    txt_action = 'registrarme'
-  when 'sessions'
-    txt_action = 'iniciar sesión'
-  end
+  # If text action was not provided
+  txt_action ||= 'Iniciar sesión'
 
 - if devise_mapping.omniauthable?
   - resource_class.omniauth_providers.each do |provider|

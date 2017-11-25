@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112052757) do
+ActiveRecord::Schema.define(version: 20171125172933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20171112052757) do
   end
 
   add_index "authentication_providers", ["name"], name: "index_name_on_authentication_providers", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "unity_id"
+    t.text     "content"
+    t.integer  "ups"
+    t.integer  "downs"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["unity_id"], name: "index_comments_on_unity_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "sections", force: :cascade do |t|
     t.string   "name",                          null: false
@@ -115,6 +128,8 @@ ActiveRecord::Schema.define(version: 20171112052757) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "comments", "unities"
+  add_foreign_key "comments", "users"
   add_foreign_key "topics", "unities"
   add_foreign_key "unities", "sections"
   add_foreign_key "user_progresses", "topics"

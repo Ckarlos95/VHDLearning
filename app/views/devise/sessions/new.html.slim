@@ -35,10 +35,10 @@ coffee:
                 *icon_prefix lock
                 = f.label :password, 'Tu contraseña'
                 = f.password_field :password, autocomplete: "off"
-              - if devise_mapping.rememberable?
-                .input-field
-                  = f.check_box :remember_me, class: 'filled-in'
-                  = f.label :remember_me
+              / - if devise_mapping.rememberable?
+              p.input-field
+                = f.check_box :remember_me, class: 'filled-in'
+                = f.label :remember_me
           br
           .row
             .col class="s12"
@@ -48,7 +48,7 @@ coffee:
       .row
         .col class="s12"
           .social-buttons
-            = render 'shared/social_buttons'
+            = render partial: 'shared/social_buttons'
       .row
         .col class="s12"
           .other-links

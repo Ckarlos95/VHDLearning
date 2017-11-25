@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong User:
+  = @comment.user
+p
+  strong Unity:
+  = @comment.unity
+p
+  strong Content:
+  = @comment.content
+p
+  strong Ups:
+  = @comment.ups
+p
+  strong Downs:
+  = @comment.downs
+
+=> link_to 'Edit', edit_comment_path(@comment)
+'|
+=< link_to 'Back', comments_path
