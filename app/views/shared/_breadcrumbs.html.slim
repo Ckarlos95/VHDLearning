@@ -1,0 +1,17 @@
+ruby:
+  content_controllers = %w{ sections unities topics }
+/ Hides breadcumb for small devices
+.hide-on-med-and-down
+  nav
+    .nav-wrapper
+      .col class="s12 nav-depth"
+        a.breadcrumb href=root_path VHDLearning
+        - if content_controllers.include? controller.controller_name
+          a.breadcrumb href=sections_path Comienza
+        - levels.each do |lvl|
+          a.breadcrumb href=lvl[:url] #{lvl[:txt]}
+
+- if controller.controller_name != 'topics' || controller.action_name != 'index'
+  .white-text
+    p.notice = notice
+    p.alert = alert

@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   get 'welcome/about', path: 'acerca-de', as: 'about'
   get 'welcome/contact', path: 'contacto', as: 'contact'
 
-  resources '', controller: :users, only: [:show]
-  get 'users/show', path: '/:nickname', as: :user
+  # resources '', controller: :users, only: [:show]
+  get 'users/show', path: '/:id', as: :user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

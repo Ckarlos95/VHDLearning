@@ -1,6 +1,8 @@
 = controller_stylesheet
 = controller_javascript
 
+= render partial: 'shared/breadcrumbs', locals: { levels: [{txt: @section.name, url: section_unities_path(@section)}] }
+
 .container
   .row
     .col class="s12"

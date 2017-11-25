@@ -23,7 +23,7 @@ $blur_size: 5px;
 }
 
 .overlay-text {
-  font-size: 30px;
+  font-size: 1.4rem;
   text-align: justify;
   position: absolute;
   overflow: hidden;
@@ -40,10 +40,10 @@ $blur_size: 5px;
 
   .section-icon {
     font: {
-      size: 16rem;
+      size: 12rem;
     }
     margin: {
-      bottom: 3rem;
+      bottom: 1.5rem;
     }
     text: {
       shadow: 12px 17px 25px rgba(0, 0, 0, 0.77);
@@ -71,19 +71,19 @@ $blur_size: 5px;
   }
 }
 
-@-webkit-keyframes blur {
+@-webkit-keyframes #{$animation_name} {
   to {
     -webkit-filter: blur($blur_size);
     filter: blur($blur_size);
   }
 }
-@-moz-keyframes blur {
+@-moz-keyframes #{$animation_name} {
   to {
     -moz-filter: blur($blur_size);
     filter: blur($blur_size);
   }
 }
-@keyframes blur {
+@keyframes #{$animation_name} {
   to {
     -webkit-filter: blur($blur_size);
     -moz-filter: blur($blur_size);

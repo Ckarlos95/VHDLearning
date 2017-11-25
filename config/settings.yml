@@ -15,3 +15,8 @@ providers:
     id: 368640813422-0d35698qsmc13hcnggjlvrikjlik0ldp.apps.googleusercontent.com
     secret: nUadpf-cJb_9N74oqwszSXYj
     ssl_perm: <%= Rails.root.join('cacert.perm').to_s %>
+
+# Recaptcha keys
+recaptcha:
+  site_key: 6LfJKzoUAAAAACF4RPa8YhnrscQSmyyEFhYcEEKx
+  secret_key: 6LfJKzoUAAAAAKtDBDW1E4HwgPzifCm9jxBkySy3

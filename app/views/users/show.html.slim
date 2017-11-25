@@ -1,8 +1,49 @@
+ruby:
+  user_bar_progress = @user.progress.xp % 1000
+  progress_width = user_bar_progress / 10
+  anim_name = 'progress'
+  anim_duration = '4s'
+
 = controller_stylesheet
 = controller_javascript
 
-- if user_signed_in? && @user&.nickname === current_user.nickname
-  .container 
-    .col class="card-panel"
-- else
-  = controller.redirect_to user_path(current_user)
+= render partial: 'shared/breadcrumbs', locals: { levels: [{txt: @user.nickname, url: user_path(@user)}] }
+
+.container 
+  .row
+    .col class="card"
+      .card-image
+        = image_tag 'users/cover'
+      .card-content
+        .row
+          .col class="s3"
+            .user-image
+              = image_tag @user.image
+            .user-info
+              h3.center = @user.nickname
+          .col class="s9 user-progress"
+            .level
+              h4.flow-text Tu nivel: #{@user.progress.level}
+            .progress
+              .determinate.user-bar class="green"
+              .progress-left #{user_bar_progress} XP
+              .progress-right #{@user.progress.level * 1000} XP
+
+css:
+  .user-bar {
+    width: #{progress_width}%;
+    -webkit-animation-name: #{anim_name};
+    -webkit-animation-duration: #{anim_duration};
+    animation-name: #{anim_name};
+    animation-duration: #{anim_duration};
+  }
+
+  @-webkit-keyframes #{anim_name} {
+    from {width: 0%;}
+    to {width: #{progress_width}%;}
+  }
+
+  @keyframes #{anim_name} {
+    from {width: 0%;}
+    to {width: #{progress_width}%;}
+  }              

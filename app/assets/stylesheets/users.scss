@@ -1,3 +1,55 @@
+@import 'mods/cross_browser';
+
+.user-image {
+  border: 0.75rem solid #bdbdbd;
+  // border-radius: 10px;
+  // margin: 0px auto;
+  // padding: 0px;
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  // -webkit-background-size: 100% 100%; /*  Safari  */
+  // -khtml-background-size: 100% 100%; /*  Konqueror  */
+  // -moz-background-size: 100% 100%; /*  Firefox  */
+
+  img {
+    width: 100%;
+    margin: 0px;
+    border: {
+      radius: 5px;
+    }
+  }
+}
+
+.card {
+  .card-image {
+    margin: 0px -0.75rem;
+    height: 20%;
+  }
+}
+
+.user-progress {
+}
+
+.progress {
+  height: 3rem;
+
+  %progress-text {
+    position: absolute;
+    top: 50%;
+    // left: 50%;
+    transform: translate(0%, -50%);
+  }
+
+  .progress-left {
+    @extend %progress-text;
+    left: 1%;
+  }
+
+  .progress-right {
+    @extend %progress-text;
+    right: 1%;
+  }
+}
 // .cover-header {
 //   width: 96%;
 //   margin: 0px auto;

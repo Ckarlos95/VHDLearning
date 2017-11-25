@@ -4,7 +4,7 @@ ruby:
     contact: {text: 'Contacto', url: contact_url, icon: 'material-icons contact_mail'}
   }
   nav_reg_links = {
-    register: {text: 'Registro', url: new_user_registration_path, icon: 'fa fa-wpforms'},
+    register: {text: 'Registro', url: new_user_registration_path, icon: 'material-icons assignment'},
     login: {text: 'Iniciar sesión', url: new_user_session_path, icon: 'fa fa-sign-in'}
   }
 
@@ -49,8 +49,10 @@ header
               i class="material-icons right" arrow_drop_down
         - else
           - nav_reg_links.each do |name, lnk|
-            li : a
-              = link_to lnk[:text], lnk[:url], class:"waves-effect waves-light btn"
+            li
+              = link_to lnk[:url], class:"waves-effect waves-light btn"
+                = icon_string lnk[:icon], class: 'left'
+                = lnk[:text]
       ul#side-bar class="side-nav"
         li
           a href="sass.html"  Sass

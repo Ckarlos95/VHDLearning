@@ -57,6 +57,9 @@ else
 end
 # # # FOR USE ON WINDOWS  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+gem 'puma'
+
+gem "recaptcha", require: "recaptcha/rails"
 # require 'rbconfig'
 # gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
 
@@ -70,7 +73,7 @@ end
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Opens sent mail on browser
+  # Opens sent mails on browser
   gem 'letter_opener'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
