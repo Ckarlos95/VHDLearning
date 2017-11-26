@@ -1,0 +1,8 @@
+// List elements must be provided each one as string if they contain ':' character
+@mixin list-yielder($elements) {
+  $empty_list: ();
+
+  #{join($elements, $empty_list, comma)} {
+    @content;
+  }
+}

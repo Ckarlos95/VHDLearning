@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources 'secciones' , controller: :sections, as: :sections do
     resources 'modulos', controller: :unities, as: :unities do
-      resources 'comentarios', controller: :comments, as: :comments
+      resources :comments, only: [:create, :update, :destroy]
       resources 'topicos', controller: :topics, as: :topics
     end
   end

@@ -1,7 +1,7 @@
 @import 'mods/cross_browser';
 
 $section_animation_duration: 500ms;
-$animation_name: blur;
+$blur_animation: blur;
 $blur_size: 5px;
 
 .overlay {
@@ -62,7 +62,7 @@ $blur_size: 5px;
 
   &:hover {
     .card-content {
-      @include prefixer(animation, $animation_name $section_animation_duration linear forwards)
+      @include prefixer(animation, $blur_animation $section_animation_duration linear forwards)
     }
     .overlay {
       height: 100%;
@@ -71,19 +71,20 @@ $blur_size: 5px;
   }
 }
 
-@-webkit-keyframes #{$animation_name} {
+// Blur animation definition
+@-webkit-keyframes #{$blur_animation} {
   to {
     -webkit-filter: blur($blur_size);
     filter: blur($blur_size);
   }
 }
-@-moz-keyframes #{$animation_name} {
+@-moz-keyframes #{$blur_animation} {
   to {
     -moz-filter: blur($blur_size);
     filter: blur($blur_size);
   }
 }
-@keyframes #{$animation_name} {
+@keyframes #{$blur_animation} {
   to {
     -webkit-filter: blur($blur_size);
     -moz-filter: blur($blur_size);

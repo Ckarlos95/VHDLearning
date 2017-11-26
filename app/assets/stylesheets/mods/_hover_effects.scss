@@ -1,0 +1,68 @@
+// These effects are taken from Hover.css: https://github.com/IanLunn/Hover
+// These effects will appear when parent element from mixin is hovered
+// So, @mixin hover_effect_name must be placed inside the element that contains
+// the element to be animated
+
+@import 'cross_browser';
+@import 'not_so_useful_mixins';
+
+// Durations
+$fastDuration: .1s !default;
+$mediumDuration: .3s !default;
+$slowDuration: .5s !default;
+
+// Animation names
+$pulse_animation: pulse;
+
+// Pulse animation mixin, must be called to generate the animation
+@mixin pulse-animation($pulse-up-size:1.1, $pulse-down-size:0.9) {
+  @include keyframer($pulse_animation) {
+    25% {
+      @include prefixer(transform, scale($pulse-up-size));
+    }
+
+    75% {
+      @include prefixer(transform, scale($pulse-down-size));
+    }
+  }
+}
+
+// Mixin to set content when :hover, :focus or :active
+@mixin hover-yielder($list: '&:hover' '&:focus' '&:active', $elements:i) {
+  @include list-yielder($list) {
+    @include list-yielder($elements) {
+      @content;
+    }
+  }
+}
+
+@mixin hvr-pulse($animation_duration:1s, $iter_count:infinite, $elements:i){
+  @include hover-yielder($elements: $elements) {
+    @include prefixer(animation-name, $pulse_animation);
+    @include prefixer(animation-duration, $animation_duration);
+    @include prefixer(animation-timing-function, linear);
+    @include prefixer(animation-iteration-count, $iter_count);
+  }
+}
+
+@mixin hvr-bounce-in($duration:$slowDuration, $size:1.2, $elements:i) {
+  @include list-yielder($elements) {
+    @include prefixer(transition-duration, $duration);
+  }
+
+  @include hover-yielder($elements: $elements) {
+    @include prefixer(transform, scale($size));
+    @include prefixer(transition-timing-function, cubic-bezier(.47,2.02,.31,-0.36));
+  }
+}
+
+@mixin hvr-grow($duration:$mediumDuration, $size:1.1, $elements:i) {
+  @include list-yielder($elements) {
+    @include prefixer(transition-duration, $duration);
+    @include prefixer(transition-property, transform);
+  }
+
+  @include hover-yielder($elements: $elements) {
+    @include prefixer(transform, scale($size));
+  }
+}
