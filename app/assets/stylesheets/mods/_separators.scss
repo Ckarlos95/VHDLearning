@@ -1,0 +1,61 @@
+
+// $upside_color: #1a237e;
+// $downside_color: #212121;
+// $inclination: 345deg;
+
+// $fg_color: white;
+// $fg_active_color: #ff4081;
+
+// @include materialize_change_inputs_foreground_color($fg_color);
+// @include materialize_change_active_inputs_foreground_color($fg_active_color);
+
+// // Creates a side for separator, needs background-color default:black
+// @mixin side_maker($bg_color:black) {
+//   background-color: $bg_color;
+//   height: 100%;
+//   padding: 2em 0em;
+// }
+
+// // Creates a zig zag separator, needs inclination, up-side color and down-side color
+// @mixin zig_zag_maker($grades:15deg, $up_color:black, $down_color:white) {
+//  display: block;
+//  // position: absolute;
+//  position: relative;
+//  content: '';
+//  left: 0;
+//  width: 100%;
+//  height: 50px;
+//  background-size: 80px 100%;
+//  top: 0;
+//  background-image: linear-gradient($grades, $down_color 35%, $up_color 50%);
+// }
+
+// #up-zz { @include zig_zag_maker($inclination, $upside_color, $downside_color); }
+// #down-zz { @include zig_zag_maker($inclination, $downside_color, $upside_color); }
+
+// // The up-side section for separator
+// #up-side { @include side_maker($upside_color); }
+// // The down-side section for separator
+// #down-side { @include side_maker($downside_color); }
+
+// body { background-color: $downside_color; }
+
+// .subtitle { color: $fg_color }
+
+// .three-dot-separator {
+//   $color: $fg_color;
+//   $distance: 40px;
+//   $size: 15px;
+//   display: block;
+//   position: relative;
+//   content: '';
+//   margin-top: 30px;
+//   width: $size;
+//   height: $size;
+//   border-radius: 50%;
+//   left: 50%;
+//   -webkit-transform: translateX(-50%);
+//   transform: translateX(-50%);
+//   background: $color;
+//   box-shadow: $distance 0 $color, -$distance 0 $color;
+// }

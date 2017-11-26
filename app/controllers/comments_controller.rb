@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_section
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = @section.comments
   end
 
   # GET /comments/1
@@ -63,13 +64,17 @@ class CommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_unity
+    @unity = Unity.find(params[:unity_id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:user_id, :unity_id, :content, :ups, :downs)
-    end
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    params.require(:comment).permit(:user_id, :unity_id, :content, :ups, :downs)
+  end
 end

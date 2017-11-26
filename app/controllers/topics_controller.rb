@@ -67,7 +67,7 @@ class TopicsController < ApplicationController
   end
 
   private
-
+  # Use callbacks to share common setup or constraints between actions.
   def set_section
     @section = Section.find(params[:section_id])
   end
@@ -76,7 +76,6 @@ class TopicsController < ApplicationController
     @unity = Unity.find(params[:unity_id])
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_topic
     @topic = Topic.find(params[:id])
   end

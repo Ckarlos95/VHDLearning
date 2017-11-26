@@ -11,59 +11,51 @@ coffee:
 = controller_javascript
 
 #sign-up.container
-  .row style="height:100%;"
+  .row
     .white-text
       = devise_error_messages!
       = flash[:recaptcha_error]
     .explanation.col class="l7 s12"
       h3 class="white-text center"
         | Una plataforma orientada al aprendizaje práctico del lenguage VHDL
-    #sign-up-form.col class="l5 s12 card-panel z-depth-4 right"
+    #sign-up-form.row.col class="l5 s12 card-panel z-depth-4 right"
       .center
         h4 Registro
         p.center ¡Únete a nosotros!
-      br
       .form-container
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          .row
-            .col class="s12"
-              .input-field
-                *icon_prefix account_circle
-                = f.label :name, 'Tu(s) nombre(s)'
-                = f.text_field :name
-              .input-field
-                *icon_prefix assignment_ind
-                = f.label :nickname, 'Escribe un nombre de usuario'
-                = f.text_field :nickname
-              .input-field
-                *icon_prefix mail
-                = f.label :email, 'Tu correo electrónico'
-                = f.email_field :email
-              .input-field
-                *icon_prefix lock
-                - if @minimum_password_length
-                  = f.label :password, "Escribe una contraseña (#{@minimum_password_length} carácteres mínimo)"
-                - else
-                  = f.label :password, 'Escribe una contraseña'
-                = f.password_field :password, autocomplete: "off"
-              .input-field
-                *icon_prefix lock
-                = f.label :password_confirmation, 'Tu contraseña otra vez'
-                = f.password_field :password_confirmation, autocomplete: "off"
-          .row
-            .col class="s12"
-              .recaptcha class="halign-wrapper"
-                = recaptcha_tags
-          .row
-            .col class="s12"
-              .actions
-                a#sign-up-btn name="commit" class="btn waves-effect waves-light col s12"
-                  | Estoy list@
-      .row
         .col class="s12"
-          .social-buttons
-            = render partial: 'shared/social_buttons', locals: { txt_action: 'Registrarme' }
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            .input-field
+              *icon_prefix account_circle
+              = f.label :name, 'Tu(s) nombre(s)'
+              = f.text_field :name
+            .input-field
+              *icon_prefix assignment_ind
+              = f.label :nickname, 'Escribe un nombre de usuario'
+              = f.text_field :nickname
+            .input-field
+              *icon_prefix mail
+              = f.label :email, 'Tu correo electrónico'
+              = f.email_field :email
+            .input-field
+              *icon_prefix lock
+              - if @minimum_password_length
+                = f.label :password, "Escribe una contraseña (#{@minimum_password_length} carácteres mínimo)"
+              - else
+                = f.label :password, 'Escribe una contraseña'
+              = f.password_field :password, autocomplete: 'off'
+            .input-field
+              *icon_prefix lock
+              = f.label :password_confirmation, 'Tu contraseña otra vez'
+              = f.password_field :password_confirmation, autocomplete: 'off'
+            .recaptcha class="halign-wrapper"
+              = recaptcha_tags
+            .row
+            .actions
+              a#sign-up-btn name="commit" class="btn waves-effect waves-light col s12"
+                | Estoy list@
       .row
-        .col class="s12"
-          .other-links
-            p ¿Ya tienes una cuenta? #{link_to 'Iniciar sesión', new_user_session_path}
+      .social-buttons.col class="s12"
+        = render partial: 'shared/social_buttons', locals: { txt_action: 'Registrarme' }
+      .other-links.col class="s12"
+        p ¿Ya tienes una cuenta? #{link_to 'Iniciar sesión', new_user_session_path}'

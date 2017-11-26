@@ -66,16 +66,17 @@ class UnitiesController < ApplicationController
   end
 
   private
-    def set_section
-      @section = Section.find(params[:section_id])
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_unity
-      @unity = Unity.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_section
+    @section = Section.find(params[:section_id])
+  end
+  
+  def set_unity
+    @unity = Unity.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def unity_params
-      params.require(:unity).permit(:section_id, :name, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def unity_params
+    params.require(:unity).permit(:section_id, :name, :description)
+  end
 end
