@@ -15,16 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "metro": "^3.0.17",
-    "bower": "*",
-    "install": "^1.0.4",
-    "metro-dist": "^3.0.15",
-    "components-font-awesome": "^4.7.0",
-    "materialize": "^0.100.2",
+    "font-awesome": "^4.7.0",
     "materialize-social": "^1.0.3"
   },
-  "main": "",
-  "resolutions": {
-    "materialize": "^0.98.1"
-  }
+  "main": ""
 }

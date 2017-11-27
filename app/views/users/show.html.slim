@@ -4,6 +4,25 @@ ruby:
   anim_name = 'progress'
   anim_duration = '4s'
 
+css:
+  .user-bar {
+    width: #{progress_width}%;
+    -webkit-animation-name: #{anim_name};
+    -webkit-animation-duration: #{anim_duration};
+    animation-name: #{anim_name};
+    animation-duration: #{anim_duration};
+  }
+
+  @-webkit-keyframes #{anim_name} {
+    from {width: 0%;}
+    to {width: #{progress_width}%;}
+  }
+
+  @keyframes #{anim_name} {
+    from {width: 0%;}
+    to {width: #{progress_width}%;}
+  }
+
 = controller_stylesheet
 = controller_javascript
 
@@ -28,22 +47,3 @@ ruby:
               .determinate.user-bar class="green"
               .progress-left #{user_bar_progress} XP
               .progress-right #{@user.progress.level * 1000} XP
-
-css:
-  .user-bar {
-    width: #{progress_width}%;
-    -webkit-animation-name: #{anim_name};
-    -webkit-animation-duration: #{anim_duration};
-    animation-name: #{anim_name};
-    animation-duration: #{anim_duration};
-  }
-
-  @-webkit-keyframes #{anim_name} {
-    from {width: 0%;}
-    to {width: #{progress_width}%;}
-  }
-
-  @keyframes #{anim_name} {
-    from {width: 0%;}
-    to {width: #{progress_width}%;}
-  }              

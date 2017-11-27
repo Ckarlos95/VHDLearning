@@ -1,3 +1,5 @@
+@import 'mods/hover_effects';
+
 nav .nav-wrapper {
   $separation: 0.4rem;
 
@@ -25,12 +27,13 @@ nav .nav-wrapper {
 
     @include hvr-grow($elements:'.logo', $size:1.22);
   }
-  ul li {
-    i {
+  // Icons for navigation links that aren't part of user's dropdown
+  > ul > li > a {
+    > i {
       font-size: 24px !important;
     }
 
-    @include hvr-bounce-in($size:1.5);
+    @include hvr-bounce-in($elements: '>i', $size:1.5);
   }
 
   .btn {

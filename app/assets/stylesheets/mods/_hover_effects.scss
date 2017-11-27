@@ -36,6 +36,7 @@ $pulse_animation: pulse;
   }
 }
 
+// Mixin for pulse effect
 @mixin hvr-pulse($animation_duration:1s, $iter_count:infinite, $elements:i){
   @include hover-yielder($elements: $elements) {
     @include prefixer(animation-name, $pulse_animation);
@@ -45,6 +46,7 @@ $pulse_animation: pulse;
   }
 }
 
+// Mixin for bounce-in effect
 @mixin hvr-bounce-in($duration:$slowDuration, $size:1.2, $elements:i) {
   @include list-yielder($elements) {
     @include prefixer(transition-duration, $duration);
@@ -56,6 +58,7 @@ $pulse_animation: pulse;
   }
 }
 
+// Mixin for grow effect
 @mixin hvr-grow($duration:$mediumDuration, $size:1.1, $elements:i) {
   @include list-yielder($elements) {
     @include prefixer(transition-duration, $duration);

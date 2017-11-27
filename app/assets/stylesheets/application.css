@@ -13,7 +13,7 @@
  * require_tree .
  *= require_self
  *= require common/all
- *= require components-font-awesome/css/font-awesome.min
+ *= require font-awesome/css/font-awesome.min
  *= require materialize-icons/material-icons
  *= require materialize-social/materialize-social
  * require materialize/sass/css/materialize
