@@ -9,6 +9,7 @@
       .row
         .col class="s12"
           = render partial: 'user_index', collection: @unities, as: :unity, locals: {unities_count: @unities.count, unity_current: 0}
+
 = link_to 'Atrás', sections_path
 / h1 Listing unities
 

@@ -1,0 +1,155 @@
+/* line 4, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment {
+  border-radius: 10px;
+  padding: 3%;
+}
+/* line 10, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-wrapper .left-info {
+  font-weight: bold;
+  text-align: justify;
+  max-width: 100%;
+  overflow: auto;
+}
+/* line 16, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-wrapper .left-info img {
+  width: 100%;
+  max-width: 100%;
+}
+/* line 21, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-wrapper .left-info .nickname {
+  font-size: 1.3rem;
+}
+/* line 27, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-wrapper .comment-part #comment-content {
+  min-height: 100%;
+  font-size: 1.9rem;
+}
+/* line 34, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-it {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+/* line 38, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-it a {
+  display: inline-block;
+  font-size: 1.3rem !important;
+}
+/* line 5, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/mods/_not_so_useful_mixins.scss */
+.new-comment .comment-it a i {
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  -moz-transition-property: transform;
+  -ms-transition-property: transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+}
+/* line 5, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/mods/_not_so_useful_mixins.scss */
+.new-comment .comment-it a:hover i, .new-comment .comment-it a:focus i, .new-comment .comment-it a:active i {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+}
+/* line 44, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-it a i {
+  font-size: 1.3rem !important;
+  line-height: inherit;
+  vertical-align: middle;
+}
+/* line 50, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.new-comment .comment-it a .txt {
+  display: inline;
+  text-transform: uppercase;
+}
+
+/* line 58, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment {
+  border-radius: 10px;
+  padding: 3%;
+}
+/* line 65, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .user-info .left-info {
+  font-weight: bold;
+  text-align: justify;
+  max-width: 100%;
+  overflow: auto;
+}
+/* line 71, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .user-info .left-info img {
+  width: 100%;
+  max-width: 100%;
+}
+/* line 79, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .other-info .user-progress {
+  font-size: 1.5rem;
+}
+/* line 85, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .comment-date time {
+  color: #8F8F8F;
+  font-size: 0.85rem;
+  -webkit-margin-before: -0.7rem;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+/* line 95, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .comment-body {
+  padding-left: 1.3333333333%;
+  padding-right: 1.3333333333%;
+  text-align: justify;
+}
+/* line 104, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .votes {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+/* line 108, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .votes a {
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 5, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/mods/_not_so_useful_mixins.scss */
+.comment .votes a i {
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+/* line 5, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/mods/_not_so_useful_mixins.scss */
+.comment .votes a:hover i, .comment .votes a:focus i, .comment .votes a:active i {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  -moz-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  -ms-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  -o-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+/* line 113, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .votes a:hover {
+  -webkit-filter: brightness(150%);
+  -moz-filter: brightness(150%);
+  -ms-filter: brightness(150%);
+  -o-filter: brightness(150%);
+  filter: brightness(150%);
+}
+/* line 117, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .votes a i {
+  line-height: inherit;
+  vertical-align: middle;
+}
+/* line 122, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/comments.scss */
+.comment .votes a .txt {
+  letter-spacing: 0.05rem;
+  display: inline;
+  text-transform: none;
+}

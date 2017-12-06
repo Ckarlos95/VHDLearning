@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require all
+// require_tree .
+//= require jquery-timeago/jquery.timeago
+//= require jquery-timeago/locales/jquery.timeago.es
 //= require materialize-sprockets
 // require materialize/dist/js/materialize.min
 // require metro/build/js/metro.min
-// require_tree .

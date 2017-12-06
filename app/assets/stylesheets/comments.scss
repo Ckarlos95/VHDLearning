@@ -1,0 +1,129 @@
+@import 'mods/cross_browser';
+@import 'mods/hover_effects';
+
+.new-comment {
+  $pad: 3%;
+  border-radius: 10px;
+  padding: $pad;
+
+  .comment-wrapper {
+    .left-info {
+      font-weight: bold;
+      text-align: justify;
+      max-width: 100%;
+      overflow: auto;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .nickname {
+        font-size: 1.3rem;
+      }
+    }
+
+    .comment-part {
+      #comment-content {
+        min-height: 100%;
+        font-size: 1.9rem;
+      }
+    }
+  }
+
+  .comment-it {
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    a {
+      $font_size: 1.3rem !important;
+      display: inline-block;
+      font-size: $font_size;
+      @include hvr-grow($size: 1.3);
+
+      i {
+        font-size: $font_size;
+        line-height: inherit;
+        vertical-align: middle;
+      }
+
+      .txt {
+        display: inline;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.comment {
+  $pad: 3%;
+  border-radius: 10px;
+
+  padding: $pad;
+
+  .user-info {
+    .left-info {
+      font-weight: bold;
+      text-align: justify;
+      max-width: 100%;
+      overflow: auto;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .other-info {
+    .user-progress {
+      font-size: 1.5rem;
+    }
+  }
+
+  .comment-date {
+    time {
+      color: #8F8F8F;
+      font-size: 0.85rem;
+      -webkit-margin-before: -0.7rem;
+      -webkit-margin-after: 0px;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+  }
+
+  .comment-body {
+    $com-pad: $pad / 2.25;
+    padding: {
+      left: $com-pad;
+      right: $com-pad;
+    }
+    text-align: justify;
+  }
+
+  .votes {
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    a {
+      display: inline-block;
+      cursor: pointer;
+      @include hvr-bounce-in($size: 1.5);
+
+      &:hover {
+        @include prefixer(filter, brightness(150%));
+      }
+
+      i {
+        line-height: inherit;
+        vertical-align: middle;
+      }
+
+      .txt {
+        letter-spacing: 0.05rem;
+        display: inline;
+        text-transform: none;
+      }
+    }
+  }
+}

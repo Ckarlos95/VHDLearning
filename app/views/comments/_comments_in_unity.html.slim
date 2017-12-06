@@ -1,0 +1,28 @@
+.comment.card class="z-depth-5"
+  .row.user-info
+    .col.left-info class="s2"
+      = image_tag comment.user.image
+      p.center = comment.user.nickname
+    .col.other-info class="s10"
+      .col.user-progress class="l10 s12"
+        .col class="s6 level"
+          p Nivel: #{comment.user.progress.level}
+        .col class="s6 xp"
+          p XP: #{comment.user.progress.xp}
+    .col.user-says class="s10"
+      h3 #{comment.user.name} dice:
+    .col.comment-date class="s10 right"
+      time.time-ago.right datetime=comment.created_at.getutc.iso8601
+        = comment.created_at.to_s
+  .row.comment-body
+    span.flow-text
+      = comment.content
+  .row.card-action.votes
+    .col class="s4"
+      a.up-vote.green-text.flow-text
+        i class="material-icons left" thumb_up
+        p.txt ¡Genial!
+    .col class="s4"
+      a.down-vote.red-text.flow-text
+        i class="material-icons left" thumb_down
+        p.txt ¡Mal!

@@ -1,24 +1,25 @@
-= form_for [@unity, @comment] do |f|
-  - if @comment.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
-      ul
-        - @comment.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :user
-    = f.text_field :user
-  .field
-    = f.label :unity
-    = f.text_field :unity
-  .field
-    = f.label :content
-    = f.text_area :content
-  .field
-    = f.label :ups
-    = f.number_field :ups
-  .field
-    = f.label :downs
-    = f.number_field :downs
-  .actions = f.submit
+.col class="s12"
+  .new-comment.card-panel class="z-depth-5"
+    = form_for [@unity.section, @unity, @comment], remote: true, html:{ id: 'comment-form', 'data-type': 'json' } do |f|
+      .row.comment-wrapper
+        .col.left-info class="s2"
+          = image_tag current_user.image
+          p.center.nickname=current_user.nickname
+          p Nivel: #{current_user.progress.level}
+          p XP: #{current_user.progress.xp}
+        .col.comment-part class="s10 right"
+          - if @comment.errors.any?
+            #error_explanation
+              h2 = "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+              ul
+                - @comment.errors.full_messages.each do |message|
+                  li = message
+          .col.comment-header class="s12"
+            h2 #{current_user.name.split.first}, comenta algo:
+          .col class="s12"
+            = f.text_area :content, id: 'comment-content', class: 'materialize-textarea'
+      .row.card-action.comment-it
+        .col class="s6 right"
+          a#comment-this.right name="commit" class="btn waves-effect waves-ligth"
+            = icon_string 'material-icons comment', class: 'left'
+            p.txt Agregar comentario

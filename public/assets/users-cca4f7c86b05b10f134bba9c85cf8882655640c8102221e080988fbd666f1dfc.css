@@ -1,0 +1,31 @@
+/* line 7, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/users.scss */
+.user-image img {
+  width: 100%;
+  margin: 0px;
+  border-radius: 5px;
+}
+
+/* line 17, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/users.scss */
+.card .card-image {
+  margin: 0px -0.75rem;
+  height: 20%;
+}
+
+/* line 26, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/users.scss */
+.progress {
+  height: 3rem;
+}
+/* line 29, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/users.scss */
+.progress .progress-left, .progress .progress-right {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+/* line 36, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/users.scss */
+.progress .progress-left {
+  left: 1%;
+}
+/* line 41, D:/Dropbox/ADOO/Proyecto/VHDLearning/app/assets/stylesheets/users.scss */
+.progress .progress-right {
+  right: 1%;
+}

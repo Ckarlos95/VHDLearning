@@ -4,14 +4,35 @@ coffee:
 
 = controller_stylesheet
 = controller_javascript
+= stylesheet_link_tag 'comments', media: 'all', 'data-turbolinks-track' => true
 
-= render partial: 'shared/breadcrumbs', locals: { levels: [{txt: @section.name, url: section_unities_path(@section)}, {txt: @unity.name, url:section_unity_topics_path(@section, @unity)}] }
+= render partial: 'shared/breadcrumbs', locals: { levels: [{txt: @unity.section.name, url: section_unities_path(@unity.section)}, {txt: @unity.name, url:section_unity_topics_path(@unity.section, @unity)}] }
 
 = render partial: 'topics_tabs', collection: @topics, as: :topic
 .container
   .row
     .col class="s12"
+      / Se cargan todos los tópicos del módulo actual
       = render partial: 'user_index', collection: @topics, as: :topic
+      .row
+      h2.white-text Comentarios en este módulo
+      .divider
+      .row
+      / Si existen comentarios en este módulo
+      - if @unity.comments.count.nonzero?
+        = render 'comments/form'
+        .row
+        .row.comments
+          .col class="s12 comment-container"
+            = render partial: 'comments/comments_in_unity', collection: @unity.comments.order(created_at: :desc), as: :comment
+      / Si no existen comentarios en este módulo
+      - else
+        h4#no-comments.white-text.center Aún no hay comentarios. ¡Agrega uno!
+        = render 'comments/form'
+        .row
+        .row.comments
+          .col class="s12 comment-container"
+        
       / , locals: {unities_count: @unities.count, unity_current: 0}
 / h1 Listing topics
 

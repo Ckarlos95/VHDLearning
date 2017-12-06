@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_section, only: [:index, :show, :edit, :update, :destroy]
+  # before_action :set_section, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_unity, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
@@ -8,6 +8,7 @@ class TopicsController < ApplicationController
   # GET /topics.json
   def index
     @topics = @unity.topics
+    @comment = Comment.new
   end
 
   # GET /topics/1

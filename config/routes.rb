@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources '', controller: :welcome, except: [:index, :create, :new, :edit, :show, :update, :destroy]
   get 'welcome/about', path: 'acerca-de', as: 'about'
   get 'welcome/contact', path: 'contacto', as: 'contact'
+  get 'welcome/editor', path: 'editor', as: 'editor'
 
   # resources '', controller: :users, only: [:show]
   get 'users/show', path: '/:id', as: :user
@@ -60,8 +61,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end
